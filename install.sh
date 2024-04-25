@@ -9,10 +9,13 @@ wget -O ~/.vimrc https://raw.githubusercontent.com/rhobernardi/vimrc/master/vimr
 git clone https://github.com/rhobernardi/ohmydot
 cd ohmydot
 
-if [[ ! -d "~/.config" ]]; then
-    mkdir ~/.config
+if [[ ! -d "$HOME/.config" ]]; then
+    mkdir $HOME/.config
 fi
-mv config/ ~/.config
-mv bashrc ~/.bashrc
+
+cd config
+cp -r $(ls) $HOME/.config
+cd ..
+mv bashrc $HOME/.bashrc
 
 cd
