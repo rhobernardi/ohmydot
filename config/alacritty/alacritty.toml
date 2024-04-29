@@ -33,6 +33,9 @@ action = "SpawnNewInstance"
 key = "Return"
 mods = "Super|Shift"
 
+[shell]
+program = "/usr/bin/zsh"
+
 [scrolling]
 history = 20000
 multiplier = 3

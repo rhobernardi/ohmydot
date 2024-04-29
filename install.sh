@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# sudo dnf copr enable skidnik/termite -y
 sudo dnf update -y
-sudo dnf install -y git vim gcc g++ byobu alacritty
+sudo dnf install -y git vim gcc g++ byobu zsh  alacritty
+
+chsh -s /usr/bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 wget -O ~/.vimrc https://raw.githubusercontent.com/rhobernardi/vimrc/master/vimrc && vim -c 'PlugInstall | q | q'
 
@@ -21,4 +23,5 @@ cp -r $(ls) $HOME/.config
 
 cd ..
 mv bashrc $HOME/.bashrc
+mv zshrc $HOME/.zshrc
 cd
