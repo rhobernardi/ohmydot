@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf update -y
-sudo dnf install -y git vim gcc g++ byobu zsh  alacritty
+sudo dnf install -y git vim gcc g++ byobu zsh polybar alacritty
 
 chsh -s /usr/bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
