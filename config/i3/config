@@ -225,7 +225,7 @@ client.background       #FFFFFF
 
 exec_always killall polybar
 exec_always ~/.config/polybar/launch.sh &
-exec_always feh --bg-fill "$HOME/Pictures/snow.jpg"
+exec_always feh --bg-fill "$HOME/Pictures/wallpapers/snow.jpg"
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
