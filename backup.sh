@@ -18,6 +18,8 @@ cp $HOME/.bashrc $TARGET/bashrc
 cp $HOME/.vimrc $TARGET/vimrc
 cp $HOME/.fehbg $TARGET/fehbg
 
+cp -r $HOME/Pictures/wallpapers $TARGET/wallpapers
+
 MOZILLA_BKP=$(ls $HOME/.mozilla/firefox | grep -E *.default-release)
 zip -r $MOZILLA_BKP.zip $HOME/.mozilla/firefox/$MOZILLA_BKP
 sudo mv $MOZILLA_BKP.zip /run/media/liveuser/persistence/

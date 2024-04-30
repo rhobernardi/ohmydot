@@ -22,6 +22,7 @@ cd config
 cp -r $(ls) $HOME/.config
 
 cd ..
+mv wallpapers $HOME/Pictures
 mv bashrc $HOME/.bashrc
 mv zshrc $HOME/.zshrc
 cd
