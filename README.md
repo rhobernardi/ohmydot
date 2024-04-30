@@ -1,4 +1,4 @@
 # ohmydot
-A dotfile management for my configs in Linux, MacOS and WSL
+A dotfile management for my configs in Fedora.
 
 `bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhobernardi/ohmydot/main/install.sh)"`
