@@ -1,2 +1,2 @@
 #!/bin/sh
-/usr/bin/feh --no-fehbg --bg-scale '/usr/share/backgrounds/default.png' 
+feh --no-fehbg --bg-fill '/home/liveuser/Pictures/snow.jpg' 
