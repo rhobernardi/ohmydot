@@ -23,7 +23,7 @@ cp -r $(ls) $HOME/.config
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 cd ..
-mv wallpapers $HOME/Pictures
+mv wallpapers $HOME/Pictures/
 mv bashrc $HOME/.bashrc
 mv zshrc $HOME/.zshrc
 cd
