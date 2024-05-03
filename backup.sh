@@ -12,14 +12,14 @@ cp -r $HOME/.config/polybar $TARGET/config
 cp -r $HOME/.config/byobu $TARGET/config
 cp -r $HOME/.config/Thunar $TARGET/config
 cp -r $HOME/.config/xfce4 $TARGET/config
+cp -r $HOME/.config/gedit $TARGET/config
 
 cp $HOME/.zshrc $TARGET/zshrc
 cp $HOME/.bashrc $TARGET/bashrc
 cp $HOME/.aliases $TARGET/aliases
 cp $HOME/.vimrc $TARGET/vimrc
-cp $HOME/.fehbg $TARGET/fehbg
 
-cp -r $HOME/Pictures/wallpapers $TARGET/wallpapers
+cp -r $HOME/Pictures/wallpapers/* $TARGET/wallpapers
 
 git status
 
