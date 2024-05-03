@@ -30,8 +30,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 cd ..
 mv wallpapers $HOME/Pictures/
+mv aliases $HOME/.aliases
 mv bashrc $HOME/.bashrc
 mv zshrc $HOME/.zshrc
-mv zshrc $HOME/.aliases
 cd
 
