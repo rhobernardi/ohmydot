@@ -18,13 +18,7 @@ ZSH_THEME="dst"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-alias src="vim ~/.zshrc && omz reload"
-alias vrc="vim ~/.vimrc"
-alias i3rc="vim ~/.config/i3/config"
-alias i3rst="i3-msg reset"
-alias explorer="thunar"
-# alias la="ls -lAh"
-# alias ll="ls -lh"
+source "$HOME/.aliases"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

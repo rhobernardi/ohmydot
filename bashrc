@@ -23,12 +23,5 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-echo 'Please type liveinst and press Enter to start the installer'
 
-alias src="vim ~/.bashrc && source ~/.bashrc"
-alias vrc="vim ~/.vimrc"
-alias i3rc="vim ~/.config/i3/config"
-alias i3rst="i3-msg reset"
-alias explorer="thunar"
-alias la="ls -lAh"
-alias ll="ls -lah"
+source "$HOME/.aliases"
