@@ -2,7 +2,8 @@
 
 # Update dnf and install basic packages
 sudo dnf update -y
-sudo dnf install -y git vim gcc g++ byobu zsh polybar alacritty xclip gedit
+sudo dnf install -y git vim gcc g++ byobu zsh alacritty xclip gedit \
+                    polybar picom rofi redshift-1.12-21.fc40.x86_64
 
 # Make zsh default shell
 chsh -s /usr/bin/zsh

@@ -28,6 +28,13 @@ bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
+# transparency
+exec picom-trans o 85 -c
+exec_always picom
+
+# yellow tint
+exec_always redshift -P -O 3000
+
 # Screenshots
 set $date $()
 bindsym Mod4+s exec --no-startup-id maim "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
@@ -78,7 +85,8 @@ bindsym $mod+Shift+q kill
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec "rofi -show drun"
 
 # Start Applications
 # bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -234,7 +242,7 @@ client.background       #FFFFFF
 
 exec_always killall polybar
 exec_always ~/.config/polybar/launch.sh &
-exec_always feh --bg-fill "$HOME/Pictures/wallpapers/tux.jpg"
+exec_always feh --bg-fill "$HOME/Pictures/wallpapers/claire_redfield.jpg"
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
