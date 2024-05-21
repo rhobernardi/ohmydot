@@ -322,7 +322,7 @@ exec_always killall polybar
 exec_always ~/.config/polybar/launch.sh &
 
 # Set wallpaper
-exec --nostartup-id sleep 1 && feh --bg-fill "$HOME/.wallpapers/claire_redfield.jpg"
+exec_always feh --bg-fill "$HOME/.wallpapers/claire_redfield.jpg"
 
 # Transparency
 exec picom-trans o 85 -c
