@@ -3,3 +3,5 @@
 	name = Rodrigo Bernardi
 [core]
 	editor = vim
+[pull]
+	rebase = true
