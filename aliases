@@ -9,6 +9,8 @@ alias picomconfig="vim ~/.config/picom/picom.conf"
 alias termiconfig="vim ~/.config/alacritty/alacritty.toml"
 alias i3rst="i3-msg restart"
 alias i3config="vim ~/.config/i3/config"
+
+# System usage
 alias explorer="xdg-open"
 
 # ls variations
@@ -22,7 +24,46 @@ alias lsa='ls -lah'
 # Others
 alias arduino="~/Downloads/arduino-ide_nightly-20240507_Linux_64bit.AppImage &"
 
-# Function
+# Functions
+pyenv() {
+    local env=$HOME/.venvs
+    local cmd=$1
+    local projectname=$2
+    local loc=$(pwd)
+
+    if [[ ! -d "$env" ]]; then
+        mkdir $env
+    fi
+
+    case $cmd in
+        '-c' | '--create')
+            python3 -m venv $env/$projectname
+            touch $env/$projectname/$projectname
+            ;;
+        '-l' | '--list')
+            ls $env
+            ;;
+        '-a' | '--activate')
+            source $env/$projectname/bin/activate
+            ;;
+        '-d' | '--delete')
+            rm -rvf $env/$projectname
+            ;;
+        '-r' | '--run')
+            cd $env/$projectname
+            python3 $projectname
+            cd $loc
+            ;;
+        *)
+            echo "$0 --create <name>    -   Create an env"
+            echo "$0 --list <name>      -   List envs"
+            echo "$0 --activate <name>  -   Choose an env"
+            echo "$0 --delete <name>    -   Delete an env"
+            echo "$0 --run <name>       -   Run an env"
+            ;;
+    esac
+}
+
 github() {
     local userid=${1:-"rhobernardi"}
     local repo=${2:-""}
