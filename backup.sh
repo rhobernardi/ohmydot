@@ -19,7 +19,7 @@ cp $HOME/.bashrc $TARGET/bashrc
 cp $HOME/.aliases $TARGET/aliases
 cp $HOME/.vimrc $TARGET/vimrc
 
-cp -r $HOME/Pictures/wallpapers/* $TARGET/wallpapers
+cp -r $HOME/.wallpapers/* $TARGET/wallpapers
 
 git status
 
