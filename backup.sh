@@ -14,6 +14,7 @@ cp -r $HOME/.config/Thunar $TARGET/config
 # cp -r $HOME/.config/byobu $TARGET/config
 # cp -r $HOME/.config/xfce4 $TARGET/config
 
+cp $HOME/.gitconfig $TARGET/gitconfig
 cp $HOME/.zshrc $TARGET/zshrc
 cp $HOME/.bashrc $TARGET/bashrc
 cp $HOME/.aliases $TARGET/aliases
