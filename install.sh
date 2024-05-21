@@ -34,6 +34,7 @@ install_dependencies() {
             specific_packs="gcc-multilib redshift telegram-desktop"
             sudo pacman -Sy
             yes | sudo pacman -S $packages $specific_packs
+            yes | yay -S brave-bin
             ;;
         *)
             logger "Could not identify OS."
@@ -80,6 +81,7 @@ config_environment() {
 
     cd ..
     cp -r wallpapers $HOME/.wallpapers
+    cp gitconfig $HOME/.gitconfig
     cp aliases $HOME/.aliases
     cp bashrc $HOME/.bashrc
     cp zshrc $HOME/.zshrc
