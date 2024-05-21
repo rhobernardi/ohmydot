@@ -86,7 +86,7 @@ config_environment() {
     cd
 }
 
-subcommand="$1"
+subcommand=${1:-"--full"}
 
 main() {
     case $subcommand in
