@@ -10,7 +10,7 @@ blinking = "On"
 # shape = "Block"
 
 [font]
-size = 8
+size = 11
 
 [font.bold]
 # family = "JetBrains Mono"

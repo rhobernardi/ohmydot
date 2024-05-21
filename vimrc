@@ -156,6 +156,7 @@ set encoding=utf-8  "codificacao utf-8
 set autoread
 set colorcolumn=80  "coluna lateral
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
+hi Normal ctermbg=none "transparent background
 set list "Mostrar tabs e trails(como o caracter •)
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« "Extends aparecem com a funcao nowrap ativada
 
