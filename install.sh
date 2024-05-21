@@ -23,14 +23,17 @@ logger () {
 OS=$(uname -a)
 
 install_dependencies() {
+    packages="git vim tig cmake make byobu zsh alacritty xclip scrot gedit polybar picom rofi"
     case $OS in
         *fedora*)
+            specific_packs="gcc g++ redshift-1.12-21.fc40.x86_64"
             sudo dnf update -y
-            sudo dnf install -y git vim gcc g++ byobu zsh alacritty xclip gedit polybar picom rofi redshift-1.12-21.fc40.x86_64
+            sudo dnf install -y $packages $specific_packs
             ;;
         *arch*)
+            specific_packs="gcc-multilib redshift telegram-desktop"
             sudo pacman -Sy
-            yes | sudo pacman -S git vim cmake make gcc-multilib byobu zsh alacritty xclip gedit polybar picom rofi redshift
+            yes | sudo pacman -S $packages $specific_packs
             ;;
         *)
             logger "Could not identify OS."
@@ -87,19 +90,19 @@ subcommand="$1"
 
 main() {
     case $subcommand in
-        "c" | "config")
+        "-c" | "--config")
             # (Re)config environment
             logger -i "Configuring environment.."
             config_environment
             logger -s "Done."
             ;;
-        "d" | "dependencies")
+        "-d" | "--dependencies")
             # Install dependencies
             logger -i "Installing dependencies.."
             install_dependencies
             logger -s "Done."
             ;;
-        "f" | "full")
+        "-f" | "--full")
             logger -i "Full installation selected.."
             install_dependencies
             config_ohmydot

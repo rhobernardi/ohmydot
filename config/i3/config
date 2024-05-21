@@ -322,7 +322,7 @@ exec_always killall polybar
 exec_always ~/.config/polybar/launch.sh &
 
 # Set wallpaper
-exec_always feh --bg-fill "$HOME/.wallpapers/claire_redfield.jpg"
+exec --nostartup-id sleep 1 && feh --bg-fill "$HOME/.wallpapers/claire_redfield.jpg"
 
 # Transparency
 exec picom-trans o 85 -c
@@ -333,11 +333,11 @@ exec_always redshift -P -O 3000
 
 # Screenshots
 set $date $()
-bindsym Mod4+s exec --no-startup-id maim "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
-bindsym Mod4+Ctrl+s exec --no-startup-id maim --select "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
+bindsym Mod4+s exec --no-startup-id scrot --silent "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
+bindsym Mod4+Ctrl+s exec --no-startup-id scrot --select --silent "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
 
 ## Clipboard Screenshots
-bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Mod4+Shift+s exec --no-startup-id scrot --select --silent | xclip -selection clipboard -t image/png
 
 # Start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
@@ -347,7 +347,11 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # Use rofi
-bindsym $mod+d exec "rofi -show drun"
+bindsym $mod+d exec rofi -modi drun -show drun \
+            -config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+t exec --no-startup-id rofi -show window \
+            -config ~/.config/rofi/rofidmenu.rasi
+bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 
 # Start Applications
 bindsym $mod+F2 exec thorium-browser
