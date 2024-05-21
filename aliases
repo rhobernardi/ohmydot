@@ -7,7 +7,7 @@ alias vrc="vim ~/.vimrc"
 alias aliascfg="vim ~/.aliases && omz reload"
 alias i3rst="i3-msg restart"
 alias i3config="vim ~/.config/i3/config"
-alias explorer="thunar"
+alias explorer="xdg-open"
 
 # ls variations
 alias l='ls -lah'

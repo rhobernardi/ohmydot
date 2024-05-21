@@ -329,7 +329,7 @@ exec picom-trans o 85 -c
 exec_always picom
 
 # Yellow tint
-exec_always redshift -P -O 3000
+exec_always redshift -P -O 3800
 
 # Screenshots
 set $date $()

@@ -85,6 +85,7 @@ config_environment() {
     cp aliases $HOME/.aliases
     cp bashrc $HOME/.bashrc
     cp zshrc $HOME/.zshrc
+    config_vim
     cd
 }
 
