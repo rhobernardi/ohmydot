@@ -38,7 +38,7 @@ pyenv() {
     case $cmd in
         '-c' | '--create')
             python3 -m venv $env/$projectname
-            touch $env/$projectname/$projectname
+            touch $env/$projectname/$projectname.py
             ;;
         '-l' | '--list')
             ls $env
@@ -51,8 +51,14 @@ pyenv() {
             ;;
         '-r' | '--run')
             cd $env/$projectname
-            python3 $projectname
+            python3 $projectname.py
             cd $loc
+            ;;
+        '-f' | '--folder')
+            cd $env/$projectname
+            ;;
+        '-o' | '--open')
+            code $env/$projectname
             ;;
         *)
             echo "$0 --create <name>    -   Create an env"
