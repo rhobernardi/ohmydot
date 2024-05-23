@@ -104,7 +104,6 @@ main() {
             logger -i "Full installation selected.."
             install_dependencies
             config_ohmydot
-            config_vim
             config_zsh
             config_environment
             logger -s "Done."

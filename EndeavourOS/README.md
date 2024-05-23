@@ -1,4 +1,4 @@
-# ohmydot
-A dotfile management for my configs in Fedora and EndeavourOS.
+# EndeavourOS dotfiles
+A dotfile management for my configs in EndeavourOS.
 
-`bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhobernardi/ohmydot/main/install.sh)"`
+`bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhobernardi/ohmydot/main/EndeavourOS/install.sh)"`
