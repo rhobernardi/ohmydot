@@ -1,9 +1,11 @@
 #!/bin/bash
 
-# System configs
+# Run commands
 alias src="vim ~/.zshrc && omz reload"
 alias brc="vim ~/.bashrc && source ~/.bashrc"
 alias vrc="vim ~/.vimrc"
+
+# System configs
 alias aliascfg="vim ~/.aliases && omz reload"
 alias picomconfig="vim ~/.config/picom/picom.conf"
 alias termiconfig="vim ~/.config/alacritty/alacritty.toml"
@@ -75,4 +77,25 @@ github() {
     local repo=${2:-""}
     local url="https://github.com/$userid/$repo"
     explorer $url
+}
+
+second-screen() {
+    local state=$1
+    case $state in
+        'on')
+            xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off
+            ;;
+        'off')
+            xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
+            ;;
+        'check')
+            local check=$(xrandr | grep 'HDMI-1 connected')
+            echo "${check:-"No second screen found."}"
+            ;;
+         *)
+             echo "$0 on"
+             echo "$0 off"
+             echo "$0 check"
+             ;;
+     esac
 }

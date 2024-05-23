@@ -20,25 +20,20 @@ logger () {
     esac
 }
 
-OS=$(uname -a)
+local OS=$(uname -a)
 
 install_dependencies() {
-    packages="git vim tig cmake make byobu zsh alacritty xclip scrot gedit polybar picom rofi"
+    packages="git vim tig cmake make byobu zsh alacritty xclip gedit polybar picom rofi"
     case $OS in
         *fedora*)
             specific_packs="gcc g++ redshift-1.12-21.fc40.x86_64"
             sudo dnf update -y
             sudo dnf install -y $packages $specific_packs
             ;;
-        *arch*)
-            specific_packs="gcc-multilib redshift telegram-desktop"
-            sudo pacman -Sy
-            yes | sudo pacman -S $packages $specific_packs
-            yes | yay -S brave-bin
-            ;;
         *)
             logger "Could not identify OS."
             logger "Aborting."
+            exit(1)
             ;;
     esac
 }
@@ -59,28 +54,28 @@ config_vim() {
 
 config_ohmydot() {
     # Clone configs repo and install all configs
-    git clone https://github.com/rhobernardi/ohmydot
+    git clone --recursive https://github.com/rhobernardi/ohmydot
 }
 
 config_environment() {
-    cd
-    cp .bashrc .bashrc.bkp
+    cd $HOME
 
+    # create folders
     if [[ ! -d "$HOME/ohmydot" ]]; then
         config_ohmydot
     fi
-
-    cd $HOME/ohmydot
-
     if [[ ! -d "$HOME/.config" ]]; then
         mkdir $HOME/.config
     fi
+    if [[ ! -d "$HOME/.wallpapers" ]]; then
+        mkdir $HOME/.wallpapers
+    fi
 
-    cd config
+    cd $HOME/ohmydot/Fedora40/config
     cp -r $(ls) $HOME/.config
 
-    cd ..
-    cp -r wallpapers $HOME/.wallpapers
+    cd $HOME/ohmydot/Fedora40
+    cp -r wallpapers/* $HOME/.wallpapers
     cp gitconfig $HOME/.gitconfig
     cp aliases $HOME/.aliases
     cp bashrc $HOME/.bashrc
