@@ -20,20 +20,20 @@ logger () {
     esac
 }
 
-local OS=$(uname -a)
+OS=$(uname -a)
 
 install_dependencies() {
-    packages="git vim tig cmake make byobu zsh alacritty xclip gedit polybar picom rofi"
+    packages="git vim tig cmake make byobu zsh alacritty xclip gedit polybar
+                picom rofi gcc g++ redshift-1.12-21.fc40.x86_64"
     case $OS in
         *fedora*)
-            specific_packs="gcc g++ redshift-1.12-21.fc40.x86_64"
             sudo dnf update -y
-            sudo dnf install -y $packages $specific_packs
+            sudo dnf install -y $packages
             ;;
         *)
             logger "Could not identify OS."
             logger "Aborting."
-            exit(1)
+            exit
             ;;
     esac
 }

@@ -324,21 +324,25 @@ exec_always ~/.config/polybar/launch.sh &
 # Set wallpaper
 exec_always feh --bg-fill "$HOME/.wallpapers/claire_redfield.jpg"
 
+# switch/iterate between workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # Transparency
-exec picom-trans o 85 -c
-exec_always picom
+# exec picom-trans o 85 -c
+exec_always --no-startup-id picom -b
+exec_always --no-startup-id picom --config ~/.config/picom.conf
 
 # Yellow tint
 exec_always redshift -P -O 3800
 
-# TODO change scrot tool
 # Screenshots
 set $date $()
-bindsym Mod4+s exec --no-startup-id scrot --silent "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
-bindsym Mod4+Ctrl+s exec --no-startup-id scrot --select --silent "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
+bindsym Mod4+s exec --no-startup-id maim "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
+bindsym Mod4+Ctrl+s exec --no-startup-id maim --select "/home/$USER/Pictures/$(date +"%Y%m%d%-H%M%S").jpg"
 
 ## Clipboard Screenshots
-bindsym Mod4+Shift+s exec --no-startup-id scrot --select --silent | xclip -selection clipboard -t image/png
+bindsym Mod4+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
@@ -356,10 +360,6 @@ bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 
 # Start Applications
 bindsym $mod+F2 exec thorium-browser
-
-# switch/iterate between workspaces
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
 
 # lock by blurring the screen:
 bindsym Mod4+l exec --no-startup-id ~/.config/i3/scripts/blur-lock
