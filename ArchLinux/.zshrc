@@ -3,6 +3,7 @@
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/zap-prompt"
+plug "rhobernardi/simple-prompt"
 # plug "zsh-users/zsh-syntax-highlighting"
 
 # Load and initialise completion system
@@ -12,6 +13,6 @@ compinit
 source ~/.aliases
 
 # My prompt
-PROMPT="╭─%B%{$fg[green]%}%n%{$fg[white]%}@%{$fg[grey]%}%m % %{$fg_bold[cyan]%}%~%{$reset_color%}\$vcs_info_msg_0_
-"
-PROMPT+="╰─%(?:%{$fg_bold[white]%}$:%{$fg_bold[red]%}$)%{$reset_color%} "
+# PROMPT="╭─%B%{$fg[green]%}%n%{$fg[white]%}@%{$fg[grey]%}%m % %{$fg_bold[cyan]%}%~%{$reset_color%}\$vcs_info_msg_0_
+# "
+# PROMPT+="╰─%(?:%{$fg_bold[white]%}$:%{$fg_bold[red]%}$)%{$reset_color%} "
