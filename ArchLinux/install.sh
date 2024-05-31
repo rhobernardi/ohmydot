@@ -83,7 +83,6 @@ config_environment() {
     cd $HOME/ohmydot/ArchLinux
     cp -r .wallpapers/* $HOME/.wallpapers
     cp .gitconfig $HOME/.gitconfig
-    cp .aliases $HOME/.aliases
     cp .bashrc $HOME/.bashrc
     cp .zshrc $HOME/.zshrc
     config_vim
@@ -92,6 +91,7 @@ config_environment() {
 
 restore_configs() {
     # Clone original configs and restore
+    cd $HOME
     git clone https://github.com/rhobernardi/alg-i3-settings
     local REPO=alg-i3-settings/etc/skel
     cp -r $REPO/.config $HOME
@@ -99,6 +99,7 @@ restore_configs() {
     chsh -s /bin/bash
     cp -r $REPO/.bashrc $HOME
     cp -r $REPO/.vimrc $HOME
+    rm -rf alg-i3-settings
 }
 
 subcommand=${1:-"--full"}

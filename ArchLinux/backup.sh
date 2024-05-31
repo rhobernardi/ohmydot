@@ -15,13 +15,13 @@ cp -r $CONFIG_PATH/polybar $TARGET/.config
 cp -r $CONFIG_PATH/picom $TARGET/.config
 # cp -r $CONFIG_PATH/rofi $TARGET/.config
 cp -r $CONFIG_PATH/ranger $TARGET/.config
+cp -r $CONFIG_PATH/zsh $TARGET/.config
 
 
 # Copy run commands files
 cp $HOME/.gitconfig $TARGET
 cp $HOME/.zshrc $TARGET
 cp $HOME/.bashrc $TARGET
-cp $HOME/.aliases $TARGET
 cp $HOME/.vimrc $TARGET
 
 cp -r $HOME/.wallpapers/* $TARGET/.wallpapers
