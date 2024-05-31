@@ -127,6 +127,7 @@ main() {
             logger -i "Restoring original config from Arch Linux GUI.."
             restore_configs
             logger -s "Done."
+            ;;
         *)
             logger -e "Error. No Option."
     esac
