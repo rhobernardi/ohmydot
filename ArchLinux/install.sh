@@ -71,6 +71,21 @@ config_ohmydot() {
     git clone --recursive https://github.com/rhobernardi/ohmydot
 }
 
+config_vscode () {
+    if [[ ! -d $HOME/.config/VSCodium ]]; then
+        yay -S --noconfirm vscodium-bin
+    fi
+    vscodium --install-extension mateuszdrewniak.theme-dracula-dark-plus
+    vscodium --install-extension ms-python.debugpy
+    vscodium --install-extension ms-python.python
+    vscodium --install-extension ms-toolsai.jupyter
+    vscodium --install-extension ms-toolsai.jupyter-keymap
+    vscodium --install-extension ms-toolsai.jupyter-renderers
+    vscodium --install-extension ms-toolsai.vscode-jupyter-cell-tags
+    vscodium --install-extension ms-toolsai.vscode-jupyter-slideshow
+    vscodium --install-extension zhuangtongfa.material-theme
+}
+
 config_environment() {
     cd $HOME
 
@@ -131,12 +146,21 @@ main() {
             logger -s "Done."
             ;;
         "-f" | "--full")
+            # Full installation
             logger -i "Full installation selected.."
             install_dependencies
             config_environment
+            config_vscode
+            logger -s "Done."
+            ;;
+        "-i" | "--ide")
+            # Install VSCodium
+            logger -i "Installing VSCodium and extensions.."
+            config_vscode
             logger -s "Done."
             ;;
         "-r" | "--restore")
+            # Restore original distro configs
             logger -i "Restoring original config from Arch Linux GUI.."
             restore_configs
             logger -s "Done."
