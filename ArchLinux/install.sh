@@ -24,11 +24,21 @@ OS=$(uname -a)
 
 install_dependencies() {
     packages="git vim tig wget curl cmake make zsh alacritty xclip maim polybar
-              base-devel archlinux-keyring picom rofi gcc-multilib redshift
+              base-devel picom rofi gcc-multilib redshift ranger
               telegram-desktop"
     case $OS in
         *arch*)
+            sudo pacman -S archlinux-keyring --noconfirm
             sudo pacman -Syyuu --noconfirm
+            if ! type yay > /dev/null ; then
+                git clone https://aur.archlinux.org/yay
+                cd yay
+                makepkg -si
+                cd ..
+                rm -rf yay
+            else
+                logger "yay already installed."
+            fi
             sudo pacman -S --noconfirm --needed $packages
             if [[ ! -d $HOME/.config/BraveSoftware ]]; then
                 yay -S --noconfirm brave-bin
@@ -85,8 +95,10 @@ config_environment() {
     cp .gitconfig $HOME/.gitconfig
     cp .bashrc $HOME/.bashrc
     cp .zshrc $HOME/.zshrc
+
+    cd $HOME
+
     config_vim
-    cd
 }
 
 restore_configs() {
