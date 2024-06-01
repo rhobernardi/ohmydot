@@ -50,4 +50,5 @@ github() {
     local userid=${1:-"rhobernardi"}
     local repo=${2:-""}
     local url="https://github.com/$userid/$repo"
+    explorer $url
 }
