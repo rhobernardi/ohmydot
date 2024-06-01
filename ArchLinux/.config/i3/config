@@ -269,16 +269,16 @@ bindsym $mod+r mode "resize"
 # WS No. 5 has been used as example.
 # Note: You will have to launch the program from a program launcher (rofi).
 #for_window [class="firefox"] move to workspace $ws5
-for_window [class="brave"] move to workspace $ws5
+for_window [class="brave"] move to workspace $ws2
 
 # The following way allows programs to be launched with a
 # defined keybinding, on a certain workspace, without
 # touching program launcher. Assign Programs to respective
 # workspaces.
 #bindsym $mod+b workspace 5; exec firefox
-bindsym $mod+b workspace 5; exec brave
+bindsym $mod+b workspace 2; exec brave
 # start a graphic file manager
-bindsym $mod+Shift+f workspace 4; exec thunar
+bindsym $mod+Shift+f workspace 3; exec thunar
 
 
 
