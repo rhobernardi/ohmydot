@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# Run commands
+# files.rc configs
 alias src="vim ~/.zshrc && source ~/.zshrc"
 alias brc="vim ~/.bashrc && source ~/.bashrc"
 alias vrc="vim ~/.vimrc"
@@ -13,9 +13,12 @@ alias termiconfig="vim ~/.config/alacritty/alacritty.toml"
 alias i3rst="i3-msg restart"
 alias i3config="vim ~/.config/i3/config"
 
-# System usage
+# Commands
+alias neofetch="clear && neofetch"
 alias explorer="xdg-open"
 alias cexplorer="ranger"
+alias pacman="sudo pacman -S"
+alias grep="grep -iE --color=auto"
 
 # ls variations
 alias l='ls -lah'

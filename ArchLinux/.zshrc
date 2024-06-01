@@ -10,6 +10,8 @@ plug "$HOME/.config/zsh/aliases.zsh"
 plug "$HOME/.config/zsh/functions.zsh"
 plug "$HOME/.config/zsh/key-bindings.zsh"
 
+plug "$HOME/.asdf"
+
 # Load and initialise completion system
 autoload -Uz compinit
 compinit

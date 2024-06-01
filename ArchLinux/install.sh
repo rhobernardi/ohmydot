@@ -24,7 +24,7 @@ OS=$(uname -a)
 
 install_dependencies() {
     packages="git vim tig wget curl cmake make zsh alacritty xclip maim polybar
-              base-devel picom rofi gcc-multilib redshift ranger
+              base-devel picom rofi gcc-multilib redshift ranger neofetch dunst
               telegram-desktop"
     case $OS in
         *arch*)
