@@ -114,8 +114,8 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 1%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 ##Brightness Control in ALG i3
-bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Yellow tint for blue filter
 exec_always --no-startup-id redshift -P -O 3800

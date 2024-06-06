@@ -45,8 +45,8 @@ install_dependencies() {
             fi
             ;;
         *)
-            logger "Could not identify OS."
-            logger "Aborting."
+            logger -e "Could not identify OS."
+            logger -e "Aborting."
             ;;
     esac
 }
@@ -150,7 +150,6 @@ main() {
             logger -i "Full installation selected.."
             install_dependencies
             config_environment
-            config_vscode
             logger -s "Done."
             ;;
         "-i" | "--ide")
