@@ -59,7 +59,7 @@ config_vim() {
 
 config_ohmydot() {
     # Clone configs repo and install all configs
-    git clone --recursive https://github.com/rhobernardi/ohmydot $HOME
+    git clone --recursive https://github.com/rhobernardi/ohmydot $HOME/ohmydot
 }
 
 config_environment() {
@@ -74,6 +74,9 @@ config_environment() {
     fi
     if [[ ! -d "$HOME/.wallpapers" ]]; then
         mkdir $HOME/.wallpapers
+    fi
+    if [[ ! -d "$HOME/.themes" ]]; then
+        mkdir $HOME/.themes
     fi
 
     cd $HOME/ohmydot/EndeavourOS/xfce4/.config
