@@ -1,0 +1,101 @@
+#!/bin/bash
+
+# Run commands
+alias src="vim ~/.zshrc && omz reload"
+alias brc="vim ~/.bashrc && source ~/.bashrc"
+alias vrc="vim ~/.vimrc"
+
+# System configs
+alias aliascfg="vim ~/.aliases && omz reload"
+alias picomconfig="vim ~/.config/picom/picom.conf"
+alias termiconfig="vim ~/.config/alacritty/alacritty.toml"
+alias i3rst="i3-msg restart"
+alias i3config="vim ~/.config/i3/config"
+
+# System usage
+alias explorer="xdg-open"
+
+# ls variations
+alias l='ls -lah'
+alias l.='ls -d .* --color=auto'
+alias la='ls -lAh'
+alias ll='ls -lh'
+alias ls='ls --color=tty'
+alias lsa='ls -lah'
+
+# Others
+alias arduino="~/Downloads/arduino-ide_nightly-20240507_Linux_64bit.AppImage &"
+
+# Functions
+pyenv() {
+    local env=$HOME/.venvs
+    local cmd=$1
+    local projectname=$2
+    local loc=$(pwd)
+
+    if [[ ! -d "$env" ]]; then
+        mkdir $env
+    fi
+
+    case $cmd in
+        '-c' | '--create')
+            python3 -m venv $env/$projectname
+            touch $env/$projectname/$projectname.py
+            ;;
+        '-l' | '--list')
+            ls $env
+            ;;
+        '-a' | '--activate')
+            source $env/$projectname/bin/activate
+            ;;
+        '-d' | '--delete')
+            rm -rvf $env/$projectname
+            ;;
+        '-r' | '--run')
+            cd $env/$projectname
+            python3 $projectname.py
+            cd $loc
+            ;;
+        '-f' | '--folder')
+            cd $env/$projectname
+            ;;
+        '-o' | '--open')
+            code $env/$projectname
+            ;;
+        *)
+            echo "$0 --create <name>    -   Create an env"
+            echo "$0 --list <name>      -   List envs"
+            echo "$0 --activate <name>  -   Choose an env"
+            echo "$0 --delete <name>    -   Delete an env"
+            echo "$0 --run <name>       -   Run an env"
+            ;;
+    esac
+}
+
+github() {
+    local userid=${1:-"rhobernardi"}
+    local repo=${2:-""}
+    local url="https://github.com/$userid/$repo"
+    explorer $url
+}
+
+second-screen() {
+    local state=$1
+    case $state in
+        'on')
+            xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off
+            ;;
+        'off')
+            xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
+            ;;
+        'check')
+            local check=$(xrandr | grep 'HDMI-1 connected')
+            echo "${check:-"No second screen found."}"
+            ;;
+         *)
+             echo "$0 on"
+             echo "$0 off"
+             echo "$0 check"
+             ;;
+     esac
+}
