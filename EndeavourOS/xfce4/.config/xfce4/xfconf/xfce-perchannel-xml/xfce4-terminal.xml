@@ -11,7 +11,7 @@
   <property name="color-bold" type="string" value="#7fbaff"/>
   <property name="color-palette" type="string" value="rgb(8,5,43);rgb(255,127,127);rgb(127,63,191);rgb(204,57,128);rgb(127,186,255);rgb(127,63,191);rgb(127,127,255);rgb(205,204,219);rgb(127,186,255);rgb(255,127,127);rgb(153,153,204);rgb(255,127,127);rgb(127,127,255);rgb(127,63,191);rgb(127,127,255);rgb(227,227,234)"/>
   <property name="color-bold-is-bright" type="bool" value="true"/>
-  <property name="font-name" type="string" value="Monospace 10"/>
+  <property name="font-name" type="string" value="Monospace 11"/>
   <property name="misc-always-show-tabs" type="bool" value="false"/>
   <property name="misc-bell" type="bool" value="false"/>
   <property name="misc-bell-urgent" type="bool" value="false"/>

@@ -18,7 +18,7 @@ alias explorer="xdg-open"
 # ls variations
 alias l='ls -lah'
 alias l.='ls -d .* --color=auto'
-alias la='ls -lAh'
+alias la='ls -Ah'
 alias ll='ls -lh'
 alias ls='ls --color=tty'
 alias lsa='ls -lah'
