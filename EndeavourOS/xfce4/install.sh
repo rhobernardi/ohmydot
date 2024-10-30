@@ -28,7 +28,7 @@ install_dependencies() {
     case $OS in
         *arch*)
             # specific_packs="gcc-multilib telegram-desktop"
-            sudo pacman -Sy
+            sudo pacman -Syu
             yes | sudo pacman -S $packages
             yes | yay -S brave-bin
             ;;
