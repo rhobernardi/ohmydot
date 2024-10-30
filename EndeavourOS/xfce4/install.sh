@@ -82,17 +82,27 @@ config_environment() {
         mkdir $HOME/.icons
     fi
 
-    cd $HOME/ohmydot/EndeavourOS/xfce4/.config
-    cp -r $(ls) $HOME/.config
+    # cd $HOME/ohmydot/EndeavourOS/xfce4/.config
+    # cp -r $(ls) $HOME/.config
 
     cd $HOME/ohmydot/EndeavourOS/xfce4
+    logger -i "Installing .config..."
+    cp -r .config/* $HOME/.config
+    logger -i "Installing .wallpapers..."
     cp -r .wallpapers/* $HOME/.wallpapers
+    logger -i "Installing .themes..."
     cp -r .themes/* $HOME/.themes
+    logger -i "Installing .icons..."
     cp -r .icons/* $HOME/.icons
+    logger -i "Installing .gitconfig..."
     cp .gitconfig $HOME/.gitconfig
+    logger -i "Installing .aliases..."
     cp .aliases $HOME/.aliases
+    logger -i "Installing .bashrc..."
     cp .bashrc $HOME/.bashrc
+    logger -i "Installing .zshrc..."
     cp .zshrc $HOME/.zshrc
+    logger -i "Installing vim..."
     config_vim
     cd
 }
