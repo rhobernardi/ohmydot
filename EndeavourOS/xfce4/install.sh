@@ -78,6 +78,9 @@ config_environment() {
     if [[ ! -d "$HOME/.themes" ]]; then
         mkdir $HOME/.themes
     fi
+    if [[ ! -d "$HOME/.icons" ]]; then
+        mkdir $HOME/.icons
+    fi
 
     cd $HOME/ohmydot/EndeavourOS/xfce4/.config
     cp -r $(ls) $HOME/.config
@@ -85,6 +88,7 @@ config_environment() {
     cd $HOME/ohmydot/EndeavourOS/xfce4
     cp -r .wallpapers/* $HOME/.wallpapers
     cp -r .themes/* $HOME/.themes
+    cp -r .icons/* $HOME/.icons
     cp .gitconfig $HOME/.gitconfig
     cp .aliases $HOME/.aliases
     cp .bashrc $HOME/.bashrc

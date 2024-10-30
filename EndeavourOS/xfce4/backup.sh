@@ -15,7 +15,8 @@ cp -r $CONFIG_PATH/Thunar $TARGET/.config
 cp -r $CONFIG_PATH/xfce4 $TARGET/.config
 
 # Copy other folders
-cp -r $HOME/.themes $TARGET/.themes
+cp -r $HOME/.themes/* $TARGET/.themes
+cp -r $HOME/.icons/* $TARGET/.icons
 cp -r $HOME/.wallpapers/* $TARGET/.wallpapers
 
 # Copy run commands files

@@ -147,16 +147,16 @@
         <value type="string" value="welcome.desktop"/>
       </property>
       <property name="recent" type="array">
+        <value type="string" value="xfce-keyboard-settings.desktop"/>
+        <value type="string" value="xfce-wm-settings.desktop"/>
+        <value type="string" value="xfce-wmtweaks-settings.desktop"/>
+        <value type="string" value="bitwarden.desktop"/>
         <value type="string" value="xfce4-mime-settings.desktop"/>
         <value type="string" value="Alacritty.desktop"/>
         <value type="string" value="org.gnome.gedit.desktop"/>
         <value type="string" value="xfce-backdrop-settings.desktop"/>
         <value type="string" value="org.xfce.mousepad.desktop"/>
         <value type="string" value="org.xfce.mousepad-settings.desktop"/>
-        <value type="string" value="xfce4-screenshooter.desktop"/>
-        <value type="string" value="welcome.desktop"/>
-        <value type="string" value="xfce-ui-settings.desktop"/>
-        <value type="string" value="xfce-settings-manager.desktop"/>
       </property>
       <property name="search-actions" type="int" value="7">
         <property name="action-0" type="empty">
