@@ -31,20 +31,20 @@ XfceTheming() {
                     mv "$conf/$dir" "$conf/$bak/$date_time/$dir" || return 1                                # save current theme
                 fi
                 case "$new_theme" in
-                    EOS) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;            # apply EOS theme
-                    Custom) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;            # apply EOS theme
-                    Nord) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;           # apply Nord theme
-                    Gruvbox) cp -r  "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;        # apply Gruvbox theme
-                    Tokio-Night) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
+                    eos) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;            # apply custom eos theme
+                    nord) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;           # apply Nord theme
+                    gruvbox) cp -r  "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;        # apply Gruvbox theme
+                    tokio-night) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
+                    eos-default) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;            # apply EOS default theme
                     vanilla) ;;
                 esac
             done
-            #sleep 1
-            #reboot
             ;;
     esac
     # Apply wallpaper
-    xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/.wallpapers/tux.jpg
+    if [[ "$new_theme" != "vanilla" ]]; then
+        xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/.wallpapers/tux.jpg
+    fi
 }
 
 XfceTheming $1
