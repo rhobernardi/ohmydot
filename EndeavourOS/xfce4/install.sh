@@ -3,7 +3,7 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-OHMYDOT_PATH="$(pwd)"
+OHMYDOT_PATH="$HOME/.local/share/ohmydot/EndeavourOS/xfce4"
 export OHMYDOT_PATH
 
 # Desktop software and tweaks will only be installed if we're running Gnome

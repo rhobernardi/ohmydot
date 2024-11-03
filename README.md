@@ -13,7 +13,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhobernardi/ohmydot/main
 
 EndeavourOS XFCE installation:
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhobernardi/ohmydot/main/EndeavourOS/xfce4/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/rhobernardi/ohmydot/main/EndeavourOS/xfce4/boot.sh)"
 ```
 
 Arch Linux GUI installation:

@@ -29,11 +29,11 @@ XfceTheming() {
             for dir in "${dirs[@]}" ; do
                 mv "$conf/$dir" "$conf/$bak/$date_time/$dir" || return 1                                # save current theme
                 case "$new_theme" in
-                    EOS) mv "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;            # apply EOS theme
-                    Custom) mv "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;            # apply EOS theme
-                    Nord) mv "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;           # apply Nord theme
-                    Gruvbox) mv "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;        # apply Gruvbox theme
-                    Tokio-Night) mv "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
+                    EOS) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;            # apply EOS theme
+                    Custom) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;            # apply EOS theme
+                    Nord) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;           # apply Nord theme
+                    Gruvbox) cp -r  "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;        # apply Gruvbox theme
+                    Tokio-Night) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
                     vanilla) ;;
                 esac
             done
