@@ -3,7 +3,7 @@
 XfceTheming() {
     local -r new_theme="$1"
     local -r date_time=$(date +%Y%m%d-%H:%M.%S)
-    local -r ohmydot_dir="$HOME/ohmydot/EndeavourOS/xfce4/install/themes"
+    local -r ohmydot_dir="$HOME/.local/share/ohmydot/EndeavourOS/xfce4/install/themes"
     local -r conf="$HOME/.config"
     local -r conf2='~/.config'
     local -r bak=xfce-theme-bak
