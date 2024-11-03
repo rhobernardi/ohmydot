@@ -4,12 +4,12 @@ XfceTheming() {
     local -r new_theme="$1"
     local -r date_time=$(date +%Y%m%d-%H:%M.%S)
     local -r ohmydot_dir="$HOME/.local/share/ohmydot/EndeavourOS/xfce4/install/themes"
-    local -r conf="$HOME/.config"
-    local -r conf2='~/.config'
+    local -r conf="$HOME"
+    local -r conf2='~/'
     local -r bak=xfce-theme-bak
     local dir
     local msg=""
-    local dirs=(xfce4)
+    local dirs=(.aliases .bashrc .config .gitconfig .icons .themes .wallpapers .zshrc)
     # expac -Q %n endeavouros-skel-xfce4 >/dev/null && dirs+=(Thunar)                        # compatibility for old installs
     local -r dirs_list=$(echo "${dirs[*]}" | tr ' ' ',')
 
@@ -27,20 +27,24 @@ XfceTheming() {
         'y'|'Y')
             mkdir -p "$conf/$bak/$date_time"
             for dir in "${dirs[@]}" ; do
-                mv "$conf/$dir" "$conf/$bak/$date_time/$dir" || return 1                                # save current theme
+                if [[ -d "$conf/$dir" ]]; then
+                    mv "$conf/$dir" "$conf/$bak/$date_time/$dir" || return 1                                # save current theme
+                fi
                 case "$new_theme" in
                     EOS) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;            # apply EOS theme
-                    Custom) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;            # apply EOS theme
-                    Nord) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;           # apply Nord theme
-                    Gruvbox) cp -r  "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;        # apply Gruvbox theme
-                    Tokio-Night) cp -r "$ohmydot_dir/$new_theme/.config/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
+                    Custom) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;            # apply EOS theme
+                    Nord) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;           # apply Nord theme
+                    Gruvbox) cp -r  "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;        # apply Gruvbox theme
+                    Tokio-Night) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
                     vanilla) ;;
                 esac
             done
-            sleep 1
+            #sleep 1
             #reboot
             ;;
     esac
+    # Apply wallpaper
+    xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/.wallpapers/tux.jpg
 }
 
 XfceTheming $1

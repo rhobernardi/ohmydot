@@ -26,11 +26,13 @@ else
 fi
 
 # Install terminal tools
-source $OHMYDOT_PATH/install/install_modules.sh
+source $OHMYDOT_PATH/install/install_modules.sh $OHMYDOT_XFCE_THEME
 if $RUNNING_XFCE; then
     # Install desktop tools and tweaks
     source $OHMYDOT_PATH/install/apply_theme.sh $OHMYDOT_XFCE_THEME
 
     # Revert to normal idle and lock settings
-    xset s on
+    #xset s on
 fi
+sleep 1
+reboot
