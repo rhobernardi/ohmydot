@@ -3,7 +3,7 @@
 XfceTheming() {
     local -r new_theme="$1"
     local -r date_time=$(date +%Y%m%d-%H:%M.%S)
-    local -r ohmydot_dir="$HOME/.local/share/ohmydot/EndeavourOS/xfce4/install/themes"
+    local -r ohmydot_dir="$HOME/.local/share/ohmydot/EndeavourOS/xfce4/configs/themes"
     local -r conf="$HOME"
     local -r conf2='~/'
     local -r bak=xfce-theme-bak
@@ -34,7 +34,7 @@ XfceTheming() {
                     eos) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;            # apply custom eos theme
                     nord) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;           # apply Nord theme
                     gruvbox) cp -r  "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;        # apply Gruvbox theme
-                    tokio-night) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
+                    tokyo-night) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;     # apply Tokio-Night theme
                     eos-default) cp -r "$ohmydot_dir/$new_theme/$dir" "$conf/" || return 1 ;;            # apply EOS default theme
                     vanilla) ;;
                 esac
@@ -42,9 +42,9 @@ XfceTheming() {
             ;;
     esac
     # Apply wallpaper
-    if [[ "$new_theme" != "vanilla" ]]; then
-        xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/.wallpapers/tux.jpg
-    fi
+    # if [[ "$new_theme" != "vanilla" ]]; then
+        # xfconf-query -c xfce4-desktop -p $(xfconf-query -c xfce4-desktop -l | grep "workspace0/last-image") -s ~/.wallpapers/tux.jpg
+    # fi
 }
 
 XfceTheming $1
